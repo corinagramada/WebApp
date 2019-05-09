@@ -1,0 +1,66 @@
+﻿@page
+@model WebApplication.Pages.Events.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].NameOfEvent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].PlaceOfEvent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].Lasting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].NumberOfVolunteersNeeded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].TipeOfActyvities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].TipeOfEvent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Events) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfEvent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceOfEvent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lasting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfVolunteersNeeded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipeOfActyvities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipeOfEvent)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
